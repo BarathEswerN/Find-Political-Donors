@@ -9,6 +9,9 @@ public class DonorVal {
 		private PriorityQueue<Double> maxHeap;
 		private long numElements;
 		
+		/*
+		 * Constructor to initaialixe the data members
+		 */
 		public DonorVal(int count, double sum, double median) {
 			this.count = count;
 			this.sum = sum;
@@ -36,6 +39,9 @@ public class DonorVal {
 			return;
 		}
 		
+		/*
+		 * Add numbers to the existing stream
+		 */
 		public void addNumberToStream (double num) {
 			maxHeap.offer(num);
 			
@@ -59,6 +65,9 @@ public class DonorVal {
 			numElements++;
 		}
 		
+		/*
+		 * Funtion to return the median
+		 */
 		public int getMedian() {
 			if (numElements % 2 != 0)
 				median = new Double(maxHeap.peek());

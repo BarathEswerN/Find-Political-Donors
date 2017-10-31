@@ -1,6 +1,6 @@
 # Find-Political-Donors
 
-1. zipcode - median_by_zip
+1. Zipcode - median_by_zip
 
 Program : PoliticalDonars.java
 
@@ -27,9 +27,10 @@ Output file:
 
 Compiling and running the program:
 
-The compiltion and run command have been embedded in run.sh file given in the root path.
+The compilation and run command have been embedded in run.sh file given in the root path.
 
     Compilation: Javac ./src/*.java
+    
     Running Program : Java -cp ./src PoliticalDonors <input-file> <output-file1> <output-file2>
     
 

@@ -1,17 +1,18 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class PoliticalDonors {
 	
+	/*
+	 * Function to create outputfiles. If already exists delete and create new one
+	 */
 	public static void clearFiles(String filename) throws IOException {
 		File file = new File(filename); 
 
@@ -21,6 +22,10 @@ public class PoliticalDonors {
 		 file.createNewFile();
 
 	}
+	
+	/*
+	 * Function to write values to output file
+	 */
 	public static void writeToFile(String fileName, String line) {
 		try
 		{
@@ -41,6 +46,7 @@ public class PoliticalDonors {
 		clearFiles(args[2]);
 		
 		Map<String, DonorVal> zipIdMap = new HashMap<>();
+		// TreeMap to store in sorted order
 		Map<String, DonorVal> dateIdMap = new TreeMap<>();
 		
 		String fName = args[0];
@@ -62,6 +68,11 @@ public class PoliticalDonors {
 			}
 			boolean isZipValid = true;
 			boolean isDateValid = true;
+			
+			/*
+			 * Checking validations of input 
+			 */
+			
 			if (tupleArr[0].length() < 1 || tupleArr[14].length() < 1 || tupleArr[15].length() > 0) {
 				continue;
 			}
@@ -76,7 +87,9 @@ public class PoliticalDonors {
 				isDateValid = false;
 			}
 			
-			
+			/*
+			 * Storing the valid inputs in a hashMap with a running median
+			 */
 			
 			String key1 = tupleArr[0]+"|"+tupleArr[10];
 			String key2 = tupleArr[0]+"|"+tupleArr[13];
