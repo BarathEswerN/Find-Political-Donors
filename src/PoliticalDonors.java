@@ -12,11 +12,14 @@ import java.util.TreeMap;
 
 public class PoliticalDonors {
 	
-	public static void clearFiles(String file) throws FileNotFoundException {
-		PrintWriter writer = new PrintWriter(file);
-		writer.print("");
-		writer.close();
-		return;
+	public static void clearFiles(String filename) throws IOException {
+		File file = new File(filename); 
+
+		 if (file.exists()) {
+		     file.delete(); 
+		     }
+		 file.createNewFile();
+
 	}
 	public static void writeToFile(String fileName, String line) {
 		try
